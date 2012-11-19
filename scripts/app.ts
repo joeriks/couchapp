@@ -1,7 +1,6 @@
 ﻿///<reference path="../defs/jquery.d.ts"/>
 ///<reference path="../defs/couch.d.ts"/>
-
-declare var $, HTML, HEAD, TITLE, STYLE, BODY, H1, DIV, BUTTON;
+///<reference path="../defs/domo.d.ts"/>
 ///<reference path="mymodule.ts"/>
 
 
@@ -21,6 +20,15 @@ HTML({ lang: "en" },
   BODY(
     H1("A sample of a typescript application within a couchdb"),
     DIV({ id: "databases" }),
+    DIV(
+        LABEL("name"),
+        INPUT({ id: "name" })
+        ),
+    DIV(
+        LABEL("value"),
+        INPUT({ id: "value" })
+        ),
+    
     BUTTON({ id: "create" }, "Click to create new document"))
 );
 
@@ -29,7 +37,8 @@ $("#create").click(() => {
     $.couch.login({ name: 'test', password: 'test' });
     $.couch.db("docs").saveDoc(
         {
-            documentproperty: 'some value'
+            name: $("#name").val(),
+            value: $("#value").val()
         }, {
             success: (data) => {
                 alert("Saved as " + data.id);

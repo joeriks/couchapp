@@ -1,4 +1,3 @@
-
 function opacity(pct) {
     return {
         opacity: String(pct / 100),
@@ -17,7 +16,11 @@ HTML({
     color: "#fff"
 }))), BODY(H1("A sample of a typescript application within a couchdb"), DIV({
     id: "databases"
-}), BUTTON({
+}), DIV(LABEL("name"), INPUT({
+    id: "name"
+})), DIV(LABEL("value"), INPUT({
+    id: "value"
+})), BUTTON({
     id: "create"
 }, "Click to create new document")));
 $("#create").click(function () {
@@ -26,7 +29,8 @@ $("#create").click(function () {
         password: 'test'
     });
     $.couch.db("docs").saveDoc({
-        documentproperty: 'some value'
+        name: $("#name").val(),
+        value: $("#value").val()
     }, {
         success: function (data) {
             alert("Saved as " + data.id);
