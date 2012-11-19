@@ -19,7 +19,7 @@ function opacity(pct) {
   )
 
 
-  mymodule.yo("version 2");
+  mymodule.yo("version 3");
 
   $.couch.allDbs({
       success : function(dbs) {

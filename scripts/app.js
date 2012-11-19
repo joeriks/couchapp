@@ -18,7 +18,7 @@ HTML({
 }))), BODY(H1("Welcome to domo"), DIV({
     id: "databases"
 })));
-mymodule.yo("version 2");
+mymodule.yo("version 3");
 $.couch.allDbs({
     success: function (dbs) {
         dbs.forEach(function (db) {
