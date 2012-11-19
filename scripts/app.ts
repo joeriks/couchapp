@@ -1,7 +1,7 @@
 ﻿///<reference path="../defs/jquery.d.ts"/>
 ///<reference path="../defs/couch.d.ts"/>
 
-declare var $, HTML, HEAD, TITLE, STYLE, BODY, H1, DIV;
+declare var $, HTML, HEAD, TITLE, STYLE, BODY, H1, DIV, BUTTON;
 ///<reference path="mymodule.ts"/>
 
 
@@ -11,18 +11,31 @@ function opacity(pct) {
 
 HTML({ lang: "en" },
   HEAD(
-    TITLE("Welcome to domo v1"),
+    TITLE("A sample of a typescript application within a couchdb"),
     STYLE({ type: "text/css" },
       STYLE.on("body", { textAlign: "center", fontSize: 50 }),
       STYLE.on("h1", opacity(50), { background: "#000", color: "#fff" })
     )
   ),
 
-  BODY(H1("Welcome to domo"), DIV({ id: "databases" }))
-)
+  BODY(
+    H1("A sample of a typescript application within a couchdb"),
+    DIV({ id: "databases" }),
+    BUTTON({ id: "create" }, "Click to create new document"))
+);
 
+$("#create").click(() => {
 
-mymodule.yo("version 4");
+    $.couch.login({ name: 'test', password: 'test' });
+    $.couch.db("docs").saveDoc(
+        {
+            documentproperty: 'some value'
+        }, {
+            success: (data) => {
+                alert("Saved as " + data.id);
+            }
+        });
+});
 
 /*
 $.couch.allDbs({
@@ -36,5 +49,3 @@ $.couch.allDbs({
 */
 /* $.couch.signup({ name: 'test' }, "test"); */
 
-$.couch.login({ name: 'test', password: 'test' });
-$.couch.db("docs").saveDoc({ documentproperty: 'some value' }, { success: (data) => { alert("Saved as " + data.id); } });

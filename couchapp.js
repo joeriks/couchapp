@@ -10283,7 +10283,7 @@ function opacity(pct) {
 }
 HTML({
     lang: "en"
-}, HEAD(TITLE("Welcome to domo v1"), STYLE({
+}, HEAD(TITLE("A sample of a typescript application within a couchdb"), STYLE({
     type: "text/css"
 }, STYLE.on("body", {
     textAlign: "center",
@@ -10291,19 +10291,22 @@ HTML({
 }), STYLE.on("h1", opacity(50), {
     background: "#000",
     color: "#fff"
-}))), BODY(H1("Welcome to domo"), DIV({
+}))), BODY(H1("A sample of a typescript application within a couchdb"), DIV({
     id: "databases"
-})));
-mymodule.yo("version 4");
-$.couch.login({
-    name: 'test',
-    password: 'test'
-});
-$.couch.db("docs").saveDoc({
-    documentproperty: 'some value'
-}, {
-    success: function (data) {
-        alert("Saved as " + data.id);
-    }
+}), BUTTON({
+    id: "create"
+}, "Click to create new document")));
+$("#create").click(function () {
+    $.couch.login({
+        name: 'test',
+        password: 'test'
+    });
+    $.couch.db("docs").saveDoc({
+        documentproperty: 'some value'
+    }, {
+        success: function (data) {
+            alert("Saved as " + data.id);
+        }
+    });
 });
 
