@@ -12,15 +12,18 @@ My application iterations looks like this:
 3. Publish to Github. Test it online.
 4. Update one single file to the live web server.
 
+<strong>The database is the web server</strong>
+
 The web server is actually a Couchdb instance running on host Iriscouch (free for small usage). Couchdb is a document database that can host html, js and other web resources.
 
 In my couchdb instance I have a database document named "test". And within that I have three file attachments:
 
-index.html
-couchapp.min.js
-github.html
+* index.html
+* couchapp.min.js
+* github.html
 
 index.html is the base html document that hosts my script, it looks like:
+
 	<!doctype html>
 	<html>
 	  <script src="couchapp.min.js"></script>
@@ -28,11 +31,13 @@ index.html is the base html document that hosts my script, it looks like:
 
 couchapp.min.js contains all my scripts in one minified bundle.
 
+<strong>The file structure in Visual Studio</strong>
+
 The bundled script contains (for now) jquery.js, jquery.couch.js, domo.js and my own scripts mymodule.js and app.js.
 
 app.js uses domo.js to create html and styles. And it calls functionality in mymodule.js.
 
-Both my own javascript files is compiled from Typescript. They are bundled on build in Visual Studio with the help of Web Essentials.
+Both my own javascript files are compiled from Typescript. They are bundled on build in Visual Studio with the help of Web Essentials.
 
 The couchapp.js.bundle looks like this
 
