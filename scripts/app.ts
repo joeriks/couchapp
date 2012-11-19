@@ -1,4 +1,6 @@
-﻿declare var $, HTML, HEAD, TITLE, STYLE, BODY, H1;
+﻿declare var $, HTML, HEAD, TITLE, STYLE, BODY, H1, DIV;
+///<reference path="mymodule.ts"/>
+
 
 function opacity(pct) {
     return {opacity: String(pct / 100), filter: "alpha(opacity=" + pct + ")"}
@@ -6,16 +8,18 @@ function opacity(pct) {
 
   HTML({lang: "en"},
     HEAD(
-      TITLE("Welcome to domo"),
+      TITLE("Welcome to domo v1"),
       STYLE({type: "text/css"},
         STYLE.on("body", {textAlign: "center", fontSize: 50}),
         STYLE.on("h1", opacity(50), {background: "#000", color: "#fff"})
       )
     ),
 
-    BODY(H1("Welcome to domo"))
+    BODY(H1("Welcome to domo"), DIV({ id: "databases" }))
   )
 
+
+  mymodule.yo("version 2");
 
   $.couch.allDbs({
       success : function(dbs) {
@@ -24,3 +28,4 @@ function opacity(pct) {
         });
       }
     });
+

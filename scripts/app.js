@@ -7,7 +7,7 @@ function opacity(pct) {
 }
 HTML({
     lang: "en"
-}, HEAD(TITLE("Welcome to domo"), STYLE({
+}, HEAD(TITLE("Welcome to domo v1"), STYLE({
     type: "text/css"
 }, STYLE.on("body", {
     textAlign: "center",
@@ -15,7 +15,10 @@ HTML({
 }), STYLE.on("h1", opacity(50), {
     background: "#000",
     color: "#fff"
-}))), BODY(H1("Welcome to domo")));
+}))), BODY(H1("Welcome to domo"), DIV({
+    id: "databases"
+})));
+mymodule.yo("version 2");
 $.couch.allDbs({
     success: function (dbs) {
         dbs.forEach(function (db) {

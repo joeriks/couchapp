@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle minify="true" runOnBuild="true">
+  <!--The order of the <file> elements determins the order of them when bundled.-->
+
+  <file>/lib/jquery.js</file>
+  <file>/lib/jquery.couch.js</file>
+  <file>/lib/domo.js</file>
+
+  <file>/scripts/mymodule.js</file>
+  <file>/scripts/app.js</file>
+  
+</bundle>
