@@ -18,11 +18,18 @@ HTML({
 }))), BODY(H1("Welcome to domo"), DIV({
     id: "databases"
 })));
-mymodule.yo("version 3");
-$.couch.allDbs({
-    success: function (dbs) {
-        dbs.forEach(function (db) {
-            $("#databases").append('<li><a href="/_utils/database.html?' + db + '">' + db + '</a></li>');
-        });
+mymodule.yo("version 4");
+$.couch.signup({
+    name: 'test'
+}, "test");
+$.couch.login({
+    name: 'test',
+    password: 'test'
+});
+$.couch.db("foo").saveDoc({
+    documentproperty: 'some value'
+}, {
+    success: function (data) {
+        alert("Saved as " + data.id);
     }
 });
