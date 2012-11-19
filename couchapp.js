@@ -10299,7 +10299,7 @@ $.couch.login({
     name: 'test',
     password: 'test'
 });
-$.couch.db("test").saveDoc({
+$.couch.db("docs").saveDoc({
     documentproperty: 'some value'
 }, {
     success: function (data) {
