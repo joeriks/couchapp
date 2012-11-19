@@ -45,16 +45,3 @@ $("#create").click(() => {
             }
         });
 });
-
-/*
-$.couch.allDbs({
-    success: function (dbs) {
-        dbs.forEach(function (db) {
-            $("#databases").append('<li><a href="/_utils/database.html?' + db + '">' + db + '</a></li>');
-        });
-    }
-});
-
-*/
-/* $.couch.signup({ name: 'test' }, "test"); */
-
