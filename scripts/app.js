@@ -19,14 +19,11 @@ HTML({
     id: "databases"
 })));
 mymodule.yo("version 4");
-$.couch.signup({
-    name: 'test'
-}, "test");
 $.couch.login({
     name: 'test',
     password: 'test'
 });
-$.couch.db("foo").saveDoc({
+$.couch.db("test").saveDoc({
     documentproperty: 'some value'
 }, {
     success: function (data) {
