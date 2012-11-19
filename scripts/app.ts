@@ -37,4 +37,4 @@ $.couch.allDbs({
 /* $.couch.signup({ name: 'test' }, "test"); */
 
 $.couch.login({ name: 'test', password: 'test' });
-$.couch.db("test").saveDoc({ documentproperty: 'some value' }, { success: (data) => { alert("Saved as " + data.id); } });
+$.couch.db("docs").saveDoc({ documentproperty: 'some value' }, { success: (data) => { alert("Saved as " + data.id); } });
